@@ -2,8 +2,17 @@ import mongoose from 'mongoose'
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
 const router = require('./router').default
+const cors = require('koa2-cors')
 
 const app = new Koa()
+app.use(cors({
+  exposeHeaders: ['WWW-Authenticate', 'Server-Authorization', 'Date'],
+  maxAge: 100,
+  credentials: true,
+  allowMethods: ['GET', 'POST', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept', 'X-Custom-Header', 'anonymous']
+}))
+
 app.use(bodyParser()) // 解析request的body
 app.use(router)
 
