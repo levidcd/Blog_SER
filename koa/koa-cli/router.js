@@ -3,15 +3,17 @@ import Router from 'koa-router'
 let home = new Router()
 
 // 子路由1
-home.get('/', async (ctx) => {
-  let html = `
-    <ul>
-      <li><a href="/page/helloworld">/page/helloworld</a></li>
-      <li><a href="/page/404">/page/404</a></li>
-    </ul>
-  `
-  console.log('访问了主路由')
-  ctx.body = html
+home.get('/', async (ctx, next) => {
+  let val = null
+  const data = { username: 'ydj' }
+  console.log('data', data)
+  const result = {
+    code: 200,
+    response: data,
+    ts: 12345
+  }
+  ctx.response.body = result
+  return result
 })
 
 // 子路由page
