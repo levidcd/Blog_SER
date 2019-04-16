@@ -1,5 +1,5 @@
 
-const Router = require('koa-router')
+import Router from 'koa-router'
 let home = new Router()
 
 // 子路由1
@@ -10,6 +10,7 @@ home.get('/', async (ctx) => {
       <li><a href="/page/404">/page/404</a></li>
     </ul>
   `
+  console.log('访问了主路由')
   ctx.body = html
 })
 
@@ -25,4 +26,4 @@ let router = new Router()
 router.use('/', home.routes(), home.allowedMethods())
 router.use('/page', page.routes(), page.allowedMethods())
 
-module.exports = router.routes()
+export default router.routes()

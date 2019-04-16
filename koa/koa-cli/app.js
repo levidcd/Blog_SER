@@ -1,6 +1,6 @@
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
-const router = require('./router')
+const router = require('./router').default
 
 const app = new Koa()
 app.use(bodyParser()) // 解析request的body
