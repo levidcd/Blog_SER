@@ -4,5 +4,8 @@
   "main": "index.js",
   "author": "evan",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "koa": "^2.7.0"
+  }
 }
