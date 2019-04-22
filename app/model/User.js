@@ -9,5 +9,3 @@ module.exports = app => {
 
   return mongoose.model('User', UserSchema)
 }
-
-// {app_root}/app/controller/user.js
