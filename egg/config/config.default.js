@@ -43,6 +43,23 @@ module.exports = appInfo => {
     }
   }
 
+  config.swaggerdoc = {
+    dirScanner: './app/controller',
+    apiInfo: {
+      title: 'egg-swagger',
+      description: 'swagger-ui for egg',
+      version: '1.0.0'
+    },
+    schemes: [ 'http', 'https' ],
+    routerMap: false,
+    enable: true
+  }
+
+  // 配置上传文件白名单
+  config.multipart = {
+    fileExtensions: [ '.pdf', '.txt' ]
+  }
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',

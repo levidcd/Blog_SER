@@ -2,6 +2,7 @@
 const Controller = require('egg').Controller
 
 // 定义创建接口的请求参数规则
+
 const createRule = {
   accesstoken: 'string',
   title: 'string',
@@ -9,7 +10,17 @@ const createRule = {
   content: 'string'
 }
 
+/**
+ * @controller user 用户接口
+ */
 class TopicController extends Controller {
+  /**
+   * @summary 创建用户
+   * @description 创建用户，记录用户账户/密码/类型
+   * @router post /v1/users
+   * @request body createUserRequest *body
+   * @response 200 baseResponse 创建成功
+   */
   async create () {
     const ctx = this.ctx
     // 校验 `ctx.request.body` 是否符合我们预期的格式
