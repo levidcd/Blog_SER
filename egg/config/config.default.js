@@ -24,6 +24,16 @@ module.exports = appInfo => {
     convert: false,
     validateRoot: false
   }
+  config.cors = {
+    origin: '*',
+    allowMethods: 'OPTIONS,GET,HEAD,PUT,POST,DELETE,PATCH'
+  }
+
+  config.security = {
+    csrf: {
+      enable: false
+    }
+  }
 
   // add your user config here
   const userConfig = {
