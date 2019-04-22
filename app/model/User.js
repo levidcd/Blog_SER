@@ -3,7 +3,7 @@ module.exports = app => {
   const Schema = mongoose.Schema
 
   const UserSchema = new Schema({
-    username: { type: String },
+    userName: { type: String },
     password: { type: String }
   })
 
