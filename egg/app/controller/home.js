@@ -10,6 +10,10 @@ class HomeController extends Controller {
 
     ctx.status = 200
   }
+
+  async db (ctx) {
+    ctx.body = await ctx.model.User.find({})
+  }
 }
 
 module.exports = HomeController

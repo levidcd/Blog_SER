@@ -35,6 +35,14 @@ module.exports = appInfo => {
     }
   }
 
+  config.mongoose = {
+    client: {
+      url:
+        'mongodb+srv://evan:Jdmm1210_@eva-lcmyw.azure.mongodb.net/test?retryWrites=true',
+      options: { useNewUrlParser: true }
+    }
+  }
+
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
