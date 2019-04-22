@@ -7,11 +7,11 @@ const response = require('../utils/response')
 class LoginController extends Controller {
   /**
    * @summary 登录
-   * @description 登录账号，记录用户账户/密码/类型
+   * @description 登录账号
    * @router post /login
-   * @param
+   * @param ctx 上下文
    * @request body loginRequest *body
-   * @response 200 baseResponse 创建成功
+   * @response 200 baseResponse 成功
    */
   async login (ctx) {
     const rule = {
