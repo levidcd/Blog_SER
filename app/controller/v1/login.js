@@ -19,13 +19,51 @@ class LoginController extends Controller {
       password: 'string'
     }
     ctx.validate(rule, ctx.request.body)
+    const { userName, password } = ctx.request.body
 
-    const data = await ctx.model.User.find({})
+    const result = await ctx.model.User.findOne({ userName, password })
+    console.log(result)
+
+    let data = ''
+
+    if (result) {
+      await this.service.user.addUser({ userName, password })
+      data = '校验成功'
+    } else {
+      data = '用户名或密码错误'
+    }
+
     ctx.body = response.baseResponse({ data })
   }
 
+  /**
+   * @summary 注册
+   * @description 注册账号
+   * @router post /v1/register
+   * @param ctx 上下文
+   * @request body registerRequest *body
+   * @response 200 baseResponse 成功
+   */
   async register (ctx) {
-    ctx.body = 'ojbk'
+    const rule = {
+      userName: 'string',
+      password: 'string'
+    }
+    ctx.validate(rule, ctx.request.body)
+    const { userName, password } = ctx.request.body
+
+    const result = await ctx.model.User.findOne({ userName })
+
+    let data = ''
+
+    if (!result) {
+      await this.service.user.addUser({ userName, password })
+      data = '成功'
+    } else {
+      data = '用户名已存在'
+    }
+
+    ctx.body = response.baseResponse({ data })
   }
 
   async forgetPassword (ctx) {

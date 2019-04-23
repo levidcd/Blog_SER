@@ -38,7 +38,7 @@ module.exports = appInfo => {
   config.mongoose = {
     client: {
       url:
-        'mongodb+srv://evan:Jdmm1210_@eva-lcmyw.azure.mongodb.net/test?retryWrites=true',
+        'mongodb+srv://evan:Jdmm1210_@eva-lcmyw.azure.mongodb.net/blog?retryWrites=true',
       options: { useNewUrlParser: true }
     }
   }
