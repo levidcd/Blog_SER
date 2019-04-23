@@ -1,14 +1,14 @@
 const Controller = require('egg').Controller
-const response = require('../utils/response')
+const response = require('../../utils/response')
 
 /**
- * @controller login 用户接口
+ * @controller login-v2 用户接口
  */
 class LoginController extends Controller {
   /**
    * @summary 登录
    * @description 登录账号
-   * @router post /login
+   * @router post /v2/login
    * @param ctx 上下文
    * @request body loginRequest *body
    * @response 200 baseResponse 成功
@@ -20,7 +20,7 @@ class LoginController extends Controller {
     }
     ctx.validate(rule, ctx.request.body)
 
-    const data = await ctx.model.User.find({})
+    const data = 'v2'
     ctx.body = response.baseResponse({ data })
   }
 
