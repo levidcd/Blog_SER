@@ -1,6 +1,6 @@
 module.exports = {
   loginRequest: {
-    userName: {
+    username: {
       type: 'string',
       required: true,
       description: '用户姓名',
@@ -14,7 +14,7 @@ module.exports = {
     }
   },
   registerRequest: {
-    userName: {
+    username: {
       type: 'string',
       required: true,
       description: '用户姓名',

@@ -15,7 +15,7 @@ class LoginController extends Controller {
    */
   async login (ctx) {
     const rule = {
-      userName: 'string',
+      username: 'string',
       password: 'string'
     }
     ctx.validate(rule, ctx.request.body)

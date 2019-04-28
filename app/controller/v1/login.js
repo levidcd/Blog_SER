@@ -15,19 +15,19 @@ class LoginController extends Controller {
    */
   async login (ctx) {
     const rule = {
-      userName: 'string',
+      username: 'string',
       password: 'string'
     }
     ctx.validate(rule, ctx.request.body)
-    const { userName, password } = ctx.request.body
+    const { username, password } = ctx.request.body
 
-    const result = await ctx.model.User.findOne({ userName, password })
+    const result = await ctx.model.User.findOne({ username, password })
     console.log(result)
 
     let data = ''
 
     if (result) {
-      await this.service.user.addUser({ userName, password })
+      await this.service.user.addUser({ username, password })
       data = '校验成功'
     } else {
       data = '用户名或密码错误'
@@ -46,18 +46,18 @@ class LoginController extends Controller {
    */
   async register (ctx) {
     const rule = {
-      userName: 'string',
+      username: 'string',
       password: 'string'
     }
     ctx.validate(rule, ctx.request.body)
-    const { userName, password } = ctx.request.body
+    const { username, password } = ctx.request.body
 
-    const result = await ctx.model.User.findOne({ userName })
+    const result = await ctx.model.User.findOne({ username })
 
     let data = ''
 
     if (!result) {
-      await this.service.user.addUser({ userName, password })
+      await this.service.user.addUser({ username, password })
       data = '成功'
     } else {
       data = '用户名已存在'
